@@ -1,0 +1,79 @@
+{% load url from future %}
+{% load staticfiles %}
+{% load i18n %}
+{% load admin_urls %}
+<!DOCTYPE html>
+
+<!-- This system was developed by Fernando Boose at Lamplight IT. -->
+<!-- The year is 2012 and we are proud to be PYTHON POWERED. -->
+<!-- http://www.lamplight.com.br -->
+<!-- http://www.github.com/lamplightIT -->
+<!-- http://www.github.com/fernandoboose -->
+
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+    <head>
+<title>Bianca Pizzaria - Delivery Online</title>
+<link rel="stylesheet/less" type="text/css" href="{% static "less/styles.less" %}">
+<link rel="stylesheet/less" type="text/css" href="{% static "css/bootstrap.css" %}">
+<script type = "text/javascript" src = "{% static "js/jquery-1.8.1.min.js" %}"></script>
+<script type = "text/javascript" src = "{% static "js/default.js" %}"></script>
+<script type = "text/javascript" src = "{% static "js/jquery.maskedinput-1.3.min.js" %}"></script>
+<script type = "text/javascript" src = "{% static "js/bootstrap-alert.js" %}"></script>
+<script type = "text/javascript" src = "{% static "js/less.js" %}"></script>
+{% block extrahead %}{% endblock %}
+</head>
+<body>
+	<div class = "overlay"></div>
+	<div class = "all">
+		{% include 'index_areas_modal.html' %}
+		<div class = "center">
+			<div class = "header">
+				<div class = "logo">
+					<img src = "{% static "img/header/Logo.png" %}">
+				</div>
+				<p class = "system-title">
+					<img src = "{% static "img/header/Titulo_Pedido_Online.png" %}">
+				</p>
+				<div class = "steps">
+					<div class = "step first">
+						<img src = "{% static "img/header/OFF_Passo1.png" %}">
+					</div>
+					<div class = "separator first"></div>
+					<div class = "step second">
+						<img src = "{% static "img/header/OFF_Passo2.png" %}">
+					</div>
+					<div class = "separator second"></div>
+					<div class = "step third">
+						<img src = "{% static "img/header/OFF_Passo3.png" %}">
+					</div>
+					<div class = "separator third"></div>
+					<div class = "step fourth">
+						<img src = "{% static "img/header/OFF_Passo4.png" %}">
+					</div>
+					<div class = "separator fourth"></div>
+					<div class = "step five">
+						<img src = "{% static "img/header/OFF_Passo5.png" %}">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "border-bottom"></div>
+		<div class = "center">
+			<div class = "content">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+		<div class = "border-top"></div>
+		<div class = "center">
+			<div class = "footer">
+				<div class = "copyright">
+					Bianca Pizzaria - Todos os direitos reservados
+				</div>
+				<div class = "credits">
+					Desenvolvimento: Estúdio BTK & Lamplight IT
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

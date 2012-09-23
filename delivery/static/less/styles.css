@@ -1,0 +1,549 @@
+html {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.all {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+input {
+  outline: none;
+}
+p {
+  margin: 0px;
+  padding: 0px;
+}
+.all {
+  overflow: auto;
+}
+.center {
+  width: 960px;
+  height: auto;
+  margin: 0 auto;
+}
+.clear {
+  clear: both;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: 11;
+  opacity: 0.8;
+  display: none;
+}
+.back-btn {
+  float: left;
+  margin-top: 27px;
+}
+.back-btn a {
+  text-decoration: none;
+  color: #C43433;
+}
+.modal {
+  width: 734px;
+  height: auto;
+  border: 1px solid red;
+  background-color: #fffdf1;
+  color: #c93332;
+  position: absolute;
+  display: none;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal .btn-close {
+  border-radius: 999px;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  text-transform: uppercase;
+  font-size: 20pt;
+  color: white;
+  background-color: #97989a;
+  margin-left: 708px;
+  margin-top: -25px;
+  cursor: pointer;
+}
+.modal .title {
+  float: left;
+  text-transform: uppercase;
+  padding: 0px 21px 10px 21px;
+  font-size: 14pt;
+}
+.modal .horizontal-separator {
+  width: 656px;
+  height: 2px;
+  background: url('/static/img/pontilhado_horizontal.png') no-repeat;
+  clear: both;
+  margin: 0 auto;
+}
+.modal .content {
+  clear: both;
+  width: 86%;
+  margin: 0 auto;
+}
+.modal .content .areas-wrap {
+  float: left;
+  padding: 20px 10px 0px 20px;
+}
+.modal .content .areas-wrap .table-title {
+  font-size: 14pt;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.modal .content .areas-wrap .areas-list,
+.modal .content .areas-wrap td,
+.modal .content .areas-wrap tr {
+  border: solid 1px #b0b29d;
+  border-collapse: collapse;
+}
+.modal .content .areas-wrap .areas-list {
+  color: #5d5842;
+}
+.modal .content .areas-wrap .areas-list .lighter {
+  background-color: #fffbd6;
+}
+.modal .content .areas-wrap .areas-list .darker {
+  background-color: #fff589;
+}
+.modal .content .horizontal-separator.bottom {
+  margin-top: 10px;
+}
+.modal .content .title-bottom {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14pt;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.header {
+  width: 100%;
+  height: 90px;
+  padding-top: 10px;
+  overflow: auto;
+}
+.header .logo {
+  float: left;
+}
+.header .system-title {
+  float: left;
+  margin-left: 65px;
+  margin-right: 65px;
+  margin-top: 42px;
+}
+.header .steps {
+  width: auto;
+  height: auto;
+}
+.header .steps .step {
+  float: left;
+}
+.header .steps .separator.first {
+  margin-left: -13px;
+}
+.header .steps .separator.second {
+  margin-left: -4px;
+  margin-right: -14px;
+}
+.header .steps .separator.third {
+  margin-left: -13px;
+  margin-right: -12px;
+}
+.header .steps .separator.fourth {
+  margin-left: -11px;
+  margin-right: -11px;
+}
+.header .steps .separator {
+  width: 65px;
+  height: 3px;
+  float: left;
+  background: url('/static/img/header/pontilhado_passos.png') no-repeat;
+  margin-top: 33px;
+}
+.border-bottom {
+  border-bottom: solid 4px red;
+}
+.border-top {
+  border-top: solid 4px red;
+  margin-top: -1px;
+}
+.input-error {
+  border: solid 1px red!important;
+}
+.content .home {
+  background: url('/static/img/bg.png') no-repeat;
+  width: 960px;
+  height: 665px;
+}
+.content .home input[type="text"],
+.content .home input[type="password"],
+.content .home #observations {
+  -moz-box-shadow: 0px 10px 16px -5px #ebf0ea;
+  -webkit-box-shadow: 0px 10px 16px -5px #ebf0ea;
+  box-shadow: 0px 10px 16px -5px #ebf0ea;
+  outline: none;
+}
+.content .home .wrap {
+  width: 735px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 35px;
+}
+.content .home .wrap .login {
+  width: 327px;
+  height: auto;
+  -moz-box-shadow: -2px 2px 35px -4px #000000;
+  -webkit-box-shadow: -2px 2px 35px -4px #000000;
+  box-shadow: -2px 2px 35px -4px #000000;
+  float: left;
+  color: #727377;
+  background-color: #f8faf5;
+}
+.content .home .wrap .login .top {
+  width: 325px;
+  height: 39px;
+  border: solid 1px #8cbc46;
+  background: url('/static/img/barra_verde.png') repeat-y;
+  background-position: -2px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 39px;
+  font-size: 14pt;
+}
+.content .home .wrap .login .fields {
+  padding: 15px 10px 10px 10px;
+  border: solid 1px #d2ccaa;
+  border-top: none;
+  overflow: auto;
+}
+.content .home .wrap .login .fields input[type="text"],
+.content .home .wrap .login .fields input[type="password"] {
+  font-size: 10.5pt;
+}
+.content .home .wrap .login .fields .input label {
+  display: inline-block;
+  width: 65px;
+  height: auto;
+  font-size: 14pt;
+  color: #737478;
+}
+.content .home .wrap .login .fields .input #username,
+.content .home .wrap .login .fields .input #password {
+  width: 231px;
+  height: 25px;
+  border: solid 1px #eff1f0;
+  margin-top: 2px;
+}
+.content .home .wrap .login .fields .input #password {
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+.content .home .wrap .login .fields .login-options {
+  float: left;
+  margin-top: 7px;
+}
+.content .home .wrap .login .fields .login-options .keep-conected {
+  color: #828385;
+  font-size: 9pt;
+  margin-bottom: 5px;
+}
+.content .home .wrap .login .fields .login-options .reset-pass {
+  float: left;
+  font-size: 9pt;
+}
+.content .home .wrap .login .fields .login-options .reset-pass a {
+  color: #828385;
+  font-style: italic;
+}
+.content .home .wrap .login .fields .btn-next-green {
+  width: 145px;
+  height: 36px;
+  cursor: pointer;
+  background: url('/static/img/btn-next-green.png') no-repeat;
+  border: none;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.content .home .wrap .sign-up {
+  -moz-box-shadow: -2px 2px 35px -4px #000000;
+  -webkit-box-shadow: -2px 2px 35px -4px #000000;
+  box-shadow: -2px 2px 35px -4px #000000;
+  float: right;
+  background-color: #F8FAF5;
+}
+.content .home .wrap .sign-up .top {
+  width: 326px;
+  height: 40px;
+  background: url('/static/img/barra_vermelha.png') no-repeat;
+  color: white;
+  border: solid 1px #f5b633;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 39px;
+  font-size: 14pt;
+}
+.content .home .wrap .sign-up .fields {
+  padding: 17px 10px 17px 10px;
+  font-size: 13.5pt;
+  border: solid 1px #d2ccaa;
+  border-top: none;
+  overflow: auto;
+}
+.content .home .wrap .sign-up .fields .block .title {
+  color: #c43433;
+  text-transform: uppercase;
+}
+.content .home .wrap .sign-up .fields .block .horizontal-separator {
+  width: 306px;
+  height: 2px;
+  background: url('/static/img/pontilhado_horizontal.png') no-repeat;
+  clear: both;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.content .home .wrap .sign-up .fields .block .input label {
+  color: #727377;
+  font-size: 10.5pt;
+  display: block;
+}
+.content .home .wrap .sign-up .fields .block .input input[type="text"],
+.content .home .wrap .sign-up .fields .block .input input[type="password"] {
+  width: 142px;
+  height: 18px;
+  border: solid 1px #eff1f0;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+.content .home .wrap .sign-up .fields .block .input #observations {
+  width: 127px;
+  height: 52px;
+  border: solid 1px #eff1f0;
+  margin-top: 2px;
+  margin-bottom: 11px;
+  resize: none;
+}
+.content .home .wrap .sign-up .fields .block .input.left {
+  float: left;
+  margin-right: 14px;
+}
+.content .home .wrap .sign-up .fields .block .input.right {
+  float: right;
+}
+.content .home .wrap .sign-up .fields .block .input.small {
+  float: left;
+}
+.content .home .wrap .sign-up .fields .block .input.small input[type="text"] {
+  width: 60px;
+  height: 18px;
+}
+.content .home .wrap .sign-up .fields .block .input.small label[for="complement"] {
+  margin-left: 11px;
+}
+.content .home .wrap .sign-up .fields .block .separator {
+  float: left;
+  color: #727377;
+  padding: 0px 3px 0px 3px;
+  margin-top: 4px;
+}
+.content .home .wrap .sign-up .fields .btn-next-red {
+  width: 145px;
+  height: 34px;
+  cursor: pointer;
+  background: url('/static/img/btn-next-red.png') no-repeat;
+  border: none;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: -9px;
+}
+.content .home .wrap .delivery-areas {
+  width: 325px;
+  height: 50px;
+  -moz-box-shadow: -2px 2px 35px -4px #000000;
+  -webkit-box-shadow: -2px 2px 35px -4px #000000;
+  box-shadow: -2px 2px 35px -4px #000000;
+  background-color: #fffbd6;
+  border: solid 1px #d2ccaa;
+  float: left;
+  margin-top: 44px;
+}
+.content .home .wrap .delivery-areas .areas-wrap {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  text-decoration: underline;
+  color: red;
+}
+.content .home .wrap .delivery-areas .areas-wrap .horizontal-separator {
+  width: 300px;
+  height: 2px;
+  background: url('/static/img/pontilhado_horizontal.png') no-repeat;
+}
+.content .home .wrap .delivery-areas #area-link {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 10pt;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.content .step-1 {
+  width: 100%;
+  height: 500px;
+  background-color: white;
+  padding-top: 17px;
+}
+.content .step-1 .top {
+  color: #c43232;
+  font-size: 12pt;
+  width: 930px;
+  margin: 0 auto;
+}
+.content .step-1 .top .line-1,
+.content .step-1 .top .line-2 {
+  float: left;
+}
+.content .step-1 .top .line-2 {
+  margin-top: -7px;
+}
+.content .step-1 .top .line-2 .delivery-time {
+  display: inline-block;
+  font-size: 20pt;
+  color: #f58634;
+  font-weight: bold;
+}
+.content .step-1 .top .btn-acc {
+  width: 242px;
+  height: 42px;
+  background: url('/static/img/my_acc_btn.png') no-repeat;
+  float: right;
+  margin-top: -36px;
+  color: white;
+}
+.content .step-1 .top .btn-acc .text {
+  padding-left: 70px;
+  line-height: 42px;
+  font-style: italic;
+  text-decoration: underline;
+  font-size: 10.5pt;
+}
+.content .step-1 .horizontal-separator {
+  width: 930px;
+  height: 2px;
+  margin: 0 auto;
+  background: url('/static/img/pontilhado_horizontal.png') repeat-x;
+  clear: both;
+  margin-top: 31px;
+}
+.content .step-1 .order-data {
+  color: #717276;
+}
+.content .step-1 .order-data .col1 {
+  float: left;
+}
+.content .step-1 .order-data .col1 .product-title {
+  float: left;
+  padding-left: 62px;
+  padding-right: 62px;
+  padding-top: 10px;
+  font-size: 38pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.content .step-1 .order-data .col1 .vertical-separator {
+  width: 2px;
+  height: 290px;
+  float: left;
+  background: url('/static/img/pontilhado_vertical.png') no-repeat;
+}
+.content .step-1 .order-data .col2 {
+  float: right;
+}
+.content .password-reset {
+  padding: 17px 0px 17px 0px;
+  color: #737478;
+}
+.content .password-reset .box-wrap {
+  width: 327px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #F8FAF5;
+}
+.content .password-reset .box-wrap .top {
+  width: 325px;
+  height: 39px;
+  border: solid 1px #8cbc46;
+  background: url('/static/img/barra_verde.png') repeat-y;
+  background-position: -2px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 39px;
+  font-size: 14pt;
+}
+.content .password-reset .box-wrap .fields {
+  padding: 10px 15px 10px 15px;
+  overflow: auto;
+}
+.content .password-reset .box-wrap .fields .legend .line-1 {
+  font-size: 14pt;
+  padding-bottom: 10px;
+}
+.content .password-reset .box-wrap .fields .legend .line-2 {
+  padding-bottom: 10px;
+  font-size: 11pt;
+  text-align: justify;
+}
+.content .password-reset .box-wrap .fields input[type="text"],
+.content .password-reset .box-wrap .fields input[type="password"] {
+  width: 293px;
+  height: 25px;
+  -moz-box-shadow: 0px 10px 16px -5px #ebf0ea;
+  -webkit-box-shadow: 0px 10px 16px -5px #ebf0ea;
+  box-shadow: 0px 10px 16px -5px #ebf0ea;
+  font-size: 10pt;
+  border: solid 1px #eff1f0;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+.content .password-reset .box-wrap .fields .btn-next-green {
+  width: 145px;
+  height: 36px;
+  cursor: pointer;
+  background: url('/static/img/btn-next-green.png') no-repeat;
+  border: none;
+  float: right;
+  margin-top: 10px;
+}
+.footer {
+  padding: 10px 0 20px 0px;
+}
+.footer .copyright {
+  float: left;
+}
+.footer .credits {
+  float: right;
+}

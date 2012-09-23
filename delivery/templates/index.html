@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<script type = "text/javascript" src = "{% static "js/index.js" %}"></script>
+<div class = "home">
+	<div class = "wrap">
+		{% if form.non_field_errors %}
+    		{% for error in form.non_field_errors %}
+        		<div class="alert alert-error">
+  						<button type="button" class="close" data-dismiss="alert">×</button>
+  						<h4>Erro!</h4> <p class = "error-msg">{{ error }}</p>
+						</div>
+    		{% endfor %}
+    {% elif form.errors %}
+    				<div class="alert alert-error">
+  						<button type="button" class="close" data-dismiss="alert">×</button>
+  						<h4>Erro!</h4> <p class = "error-msg">Por favor, revise os campos destacados em vermelho.</p>
+						</div>
+		{% endif %}
+		{% if messages %}
+		    {% for message in messages %}
+		    <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+		    	<button type="button" class="close" data-dismiss="alert">×</button>
+		    	<h4>{% if 'error' in message.tags %}Erro!{% elif 'success' in message.tags %}Sucesso!{% endif %}</h4> <p class = "success-msg">{{ message }}</p>
+		    </div>
+		    {% endfor %}
+		{% endif %}
+
+		<div class = "login">
+			<div class = "top">
+				Já sou Cadastrado
+			</div>
+			<div class = "fields">
+				<form method="post" action="{% url delivery.views.user_login %}">
+					{% csrf_token %}
+					<div class = "input">
+						<label for = "username">E-mail:</label>
+				    	<input type = "text" name = "username" id = "username">
+			    </div>
+			    <div class = "input">
+				    <label for = "password">Senha:</label>
+				    	<input type = "password" name = "password" id = "password">
+					</div>
+					<div class = "login-options">
+						<div class = "keep-conected">
+							<input type = "checkbox" name = "keep_connected" id = "keep_connected" />Continuar conectado
+						</div>
+						<div class = "reset-pass">
+							<div class = "ruler"></div>
+							<a href="/recupera_senha">Esqueci minha senha</a>
+						</div>
+					</div>
+					<input type="submit" class = "btn-next-green" value = "" />
+					<input type="hidden" name="next" value="{{ next }}" />
+				</form>
+			</div>
+		</div>
+		<div class = "sign-up">
+			<div class = "top">
+				Quero me Cadastrar
+			</div>
+			<div class = "fields">
+				<form method="post" action="{% url delivery.views.user_register %}">
+					{% csrf_token %}
+					<div class = "block first">
+							<div class = "title">
+								Dados Cadastrais
+							</div>
+							<div class = "horizontal-separator"></div>
+							<div class = "input left">
+								<label for = "first_name">Nome:</label>
+								<input type = "text" name = "first_name" value = "{% if form.first_name.value %}{{form.first_name.value}}{% endif %}" id = "first_name" {% if form.first_name.errors %}class = "input-error"{% endif %} >
+							</div>
+							<div class = "input">
+								<label for = "last_name">Sobrenome:</label>
+								<input type = "text" name = "last_name" value = "{% if form.last_name.value %}{{form.last_name.value}}{% endif %}" id = "last_name" {% if form.last_name.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input">
+								<label for = "email">E-mail:</label>
+								<input type = "text" name = "email" value = "{% if form.email.value %}{{form.email.value}}{% endif %}" id = "email" {% if form.email.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input left">
+								<label for = "password">Senha:</label>
+								<input type = "password" name = "password" value = "{% if form.password.value %}{{form.password.value}}{% endif %}" id = "password" {% if form.password.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input">
+								<label for = "password2">Confirme a senha:</label>
+								<input type = "password" name = "password2" value = "{% if form.password2.value %}{{form.password2.value}}{% endif %}" id = "password2" {% if form.password2.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input">
+								<label for = "birth_date">Data de Nascimento:</label>
+								<input type = "text" name = "birth_date" value = "{% if form.birth_date.value %}{{form.birth_date.value}}{% endif %}" id = "birth_date" {% if form.birth_date.errors %}class = "input-error"{% endif %}>
+							<div class = "input left">
+								<label for = "cpf">CPF:</label>
+								<input type = "text" name = "cpf" value = "{% if form.cpf.value %}{{form.cpf.value}}{% endif %}" id = "cpf" {% if form.cpf.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input">
+								<label for = "tel_number">Telefone:</label>
+								<input type = "text" name = "tel_number" value = "{% if form.tel_number.value %}{{form.tel_number.value}}{% endif %}" id = "tel_number" {% if form.tel_number.errors %}class = "input-error"{% endif %}>
+							</div>
+					</div>
+					<div class = "block second">
+							<div class = "title">
+								Endereço
+							</div>
+							<div class = "horizontal-separator"></div>
+							<div class = "input right">
+								<label for = "observations">Ponto de referência, <br> Observações:</label>
+								<textarea name = "observations" id = "observations" {% if form.observations.errors %}class = "input-error"{% endif %}>{% if form.observations.value %}{{form.observations.value}}{% endif %}</textarea>
+							</div>
+							<div class = "input">
+								<label for = "cep">CEP:</label>
+								<input type = "text" value = "{% if form.cep.value %}{{form.cep.value}}{% endif %}" name = "cep" id = "cep" {% if form.cep.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input">
+								<label for = "street">Logradouro:</label>
+								<input type = "text" value = "{% if form.street.value %}{{form.street.value}}{% endif %}" name = "street" id = "street" {% if form.street.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input small">
+								<label for = "number">Número:</label>
+								<input type = "text" value = "{% if form.number.value %}{{form.number.value}}{% endif %}" name = "number" id = "number" {% if form.number.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input small">
+								<label for = "complement">Complemento:</label>
+								<span class = "separator"> / </span>
+								<input type = "text" name = "complement" value = "{% if form.complement.value %}{{form.complement.value}}{% endif %}" id = "complement" {% if form.complement.errors %}class = "input-error"{% endif %}>
+							</div>
+							<div class = "input clear">
+								<label for = "neighborhood">Bairro:</label>
+								<input type = "text" name = "neighborhood" value = "{% if form.neighborhood.value %}{{form.neighborhood.value}}{% endif %}" id = "neighborhood" {% if form.neighborhood.errors %}class = "input-error"{% endif %}>
+							</div>
+					</div>		
+					<input type="submit" class = "btn-next-red" value = "" />
+					<input type="hidden" name="next" value="{{ next }}" />
+				</form>
+			</div>
+			</div>
+		</div>
+		<div class = "delivery-areas">
+			<div class = "areas-wrap">
+				<div id = "area-link">
+					Clique aqui e consulte as áreas de entrega
+				</div>
+				<div class = "horizontal-separator"></div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

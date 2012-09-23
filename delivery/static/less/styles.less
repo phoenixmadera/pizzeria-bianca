@@ -1,0 +1,406 @@
+//Variables
+@bg-body-color: 		#000;
+@bg-top: 						url('/InstitutoMicro/app/webroot/img/bg-top.jpg');
+@bg-bar-about: 			url('/InstitutoMicro/app/webroot/img/bar_about.png');
+@bg-welcome: 				url(/InstitutoMicro/app/webroot/img/bg-welcome.png);
+@flag-en: 					url('/InstitutoMicro/app/webroot/img/en.gif');
+@flag-es: 					url('/InstitutoMicro/app/webroot/img/es.gif');
+@flag-br: 					url('/InstitutoMicro/app/webroot/img/pt_br.gif');
+@font-family: 			helveticaneue;
+@line-top-left: 		url('/InstitutoMicro/app/webroot/img/top-line-left.png');
+@line-top-right: 		url('/InstitutoMicro/app/webroot/img/top-line-right.png');
+@top-logo: 					url('/InstitutoMicro/app/webroot/img/top-logo.png');
+
+//Functions
+.centralize () {
+  margin: 0 auto; }
+
+.setSize(@new_width: auto, @new_height: auto) { width: @new_width;
+																							 	height: @new_height; }
+
+.emptyMargin() { margin: 0px; 
+							 	 padding: 0px; }
+
+.setImgBG(@new_url: 'null', @repeat: no-repeat) {	background-image: @new_url;
+																					background-repeat: @repeat; }
+
+.setFont(@font-family, @font-weight: 300, @font-size: 13pt){	font-family: @font-family;
+																															font-weight: @font-weight;
+																															font-size: @font-size;	}
+
+.top-lines-margin(@margin: 40px) {	margin-top: @margin;	}
+
+.reset(){	clear: both;	}
+
+.setGradientBG(@darkerColor, @lighterColor){	/*  background-color: #F07575; /* fallback color if gradients are not supported */
+																						   background-image: -webkit-linear-gradient(top, @darkerColor 519px, @lighterColor);
+																						   background-image:    -moz-linear-gradient(top, @darkerColor 519px, @lighterColor); /* For Fx 3.6 to Fx 15 */
+																						   background-image:     -ms-linear-gradient(top, @darkerColor 519px, @lighterColor); /* For IE 10 Platform Previews and Consumer Preview */
+																						   background-image:      -o-linear-gradient(top, @darkerColor 519px, @lighterColor); /* For Opera 11.1 to 12.0 */
+																						   background-image:         linear-gradient(to bottom, @darkerColor 519px, @lighterColor); /* Standard syntax; must be the last statement */	}
+
+.setShadow(@size: 1px 1px 8px 0px, @color: #000){	-moz-box-shadow: @size @color;
+																									-webkit-box-shadow: @size @color;
+																									box-shadow: @size @color;		}
+
+.setRadius(@radius: 2px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+//Page Elements
+
+html {	.emptyMargin();
+				.setSize(100%, 100%);
+				color: white;	}
+
+body {	.emptyMargin();
+				.setSize(100%, 100%);
+				background-color: @bg-body-color;
+				font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;	}
+
+.all {	.emptyMargin();
+				.setSize(100%, 100%);	}
+
+input {	outline: none;	}
+
+p { 	.emptyMargin();	}
+
+.all {	overflow: auto;	}
+
+.center {	.setSize(960px);
+					.centralize;	}
+
+.clear {	.reset;	}
+
+.overlay{	.setSize(100%, 100%);
+					background-color: black;
+					position: absolute;
+					z-index: 11;
+					opacity: 0.8;
+					display: none;	}
+
+.back-btn {	float: left;
+						margin-top: 27px;
+						a {	text-decoration: none;
+								color: #C43433;	}	
+					}
+
+.modal {	.setSize(734px);
+					border: 1px solid red;
+					background-color: #fffdf1;
+					color: #c93332;
+					position: absolute;
+					display: none;
+					z-index: 999;
+					left:0;
+        	right:0;
+        	margin-top: 50px;
+        	margin-left:auto;
+        	margin-right:auto;
+					.btn-close { 	.setRadius(999px);
+												.setSize(50px, 50px);
+												text-align: center;
+												line-height: 50px;
+												text-transform: uppercase;
+												font-size: 20pt;
+												color: white;
+												background-color: #97989a;
+												margin-left: 708px;
+												margin-top: -25px;
+												cursor: pointer;	}
+					.title {	float: left;
+										text-transform: uppercase;
+										padding: 0px 21px 10px 21px;
+										font-size: 14pt;	}
+					.horizontal-separator {	.setSize(656px, 2px);
+																	background: url('/static/img/pontilhado_horizontal.png') no-repeat;
+																	clear: both;
+																	.centralize;	}
+					.content {	.reset;
+											width: 86%;
+											margin: 0 auto;
+											.areas-wrap {	float: left;
+																		padding: 20px 10px 0px 20px;
+																		.table-title {	font-size: 14pt;
+																										text-transform: uppercase;
+																										margin-top: 15px;
+																										margin-bottom: 5px;	}
+																		.areas-list,td,tr {	border: solid 1px #b0b29d;
+																												border-collapse: collapse;	}
+																		.areas-list {	color: #5d5842;
+																									.lighter {	background-color: #fffbd6; }
+																									.darker {	background-color: #fff589;	}	
+
+																								}	
+																	}
+											.horizontal-separator.bottom {	margin-top: 10px;	}
+											.title-bottom {	text-align: center;
+																			text-transform: uppercase;
+																			font-size: 14pt;
+																			margin-top: 15px;
+																			margin-bottom: 5px;	}
+									 }
+
+				}
+
+.header {	 .setSize(100%, 90px);
+					 padding-top: 10px;
+					 overflow: auto;
+					 .logo {	float: left;	}
+					 .system-title { 	float: left;
+					 									margin-left: 65px;
+					 									margin-right: 65px;
+					 									margin-top: 42px;	}
+					 .steps {	.setSize();
+					 					.step {	float: left;	}
+					 					.separator.first {	margin-left: -13px;	}
+					 					.separator.second {	margin-left: -4px;
+					 															margin-right: -14px;	}
+					 					.separator.third {	margin-left: -13px;
+					 															margin-right: -12px;	}
+					 					.separator.fourth {	margin-left: -11px;
+					 															margin-right: -11px;	}
+					 					.separator {	.setSize(65px, 3px);
+					 												float: left;
+					 												background: url('/static/img/header/pontilhado_passos.png') no-repeat;
+					 												margin-top: 33px;	}	
+									}
+				}
+
+.border-bottom {	border-bottom: solid 4px red;	}
+
+.border-top {	border-top: solid 4px red;
+							margin-top: -1px;	}
+
+.input-error {	border: solid 1px red!important;	}
+
+.content {	.home {	background: url('/static/img/bg.png') no-repeat;
+										.setSize(960px, 665px);
+										input[type="text"], input[type="password"], #observations {	.setShadow(0px 10px 16px -5px, #ebf0ea);
+																																								outline: none;	}
+										.wrap {	.setSize(735px);
+														.centralize;
+														padding-top: 35px;
+														.login {	.setSize(327px);
+																			.setShadow(-2px 2px 35px -4px);
+																			float: left;
+																			color: #727377;
+																			background-color: #f8faf5;
+																			.top {	.setSize(325px, 39px);
+																							border: solid 1px #8cbc46;
+																							background: url('/static/img/barra_verde.png') repeat-y;
+																							background-position: -2px;
+																							color: white;
+																							text-transform: uppercase;
+																							text-align: center;
+																							line-height: 39px;
+																							font-size: 14pt;	}	
+																			.fields {	padding: 15px 10px 10px 10px;
+																								border: solid 1px #d2ccaa;
+																								border-top: none;
+																								overflow: auto;
+																								input[type="text"], input[type="password"] {	font-size: 10.5pt; }
+																								.input {	label {	display: inline-block;
+																																	.setSize(65px);
+																																	font-size: 14pt;
+																																	color: #737478;	}
+																													#username, #password {	.setSize(231px, 25px);
+																																									border: solid 1px #eff1f0;
+																																									margin-top: 2px;	}	
+																													#password {	margin-top: 20px;
+																																			margin-bottom: 14px;	}
+																												}
+																								.login-options {	float: left;
+																																	margin-top: 7px;
+																																	.keep-conected {	color: #828385;
+																																										font-size: 9pt;
+																																										margin-bottom: 5px;	}
+																																	.reset-pass {	float: left;
+																																								font-size: 9pt;
+																																								a {	color: #828385;
+																																										font-style:italic;	} 	
+																																							}
+																																}
+																								.btn-next-green {	.setSize(145px, 36px);
+																																	cursor: pointer;
+																																	background: url('/static/img/btn-next-green.png') no-repeat;
+																																	border: none;
+																																	float: right;
+																																	margin-top: 10px;
+																																	margin-bottom: 10px;	}
+																						 }
+																		}
+														.sign-up {	.setShadow(-2px 2px 35px -4px);
+																				float: right;
+																				background-color: #F8FAF5;
+																				.top {	.setSize(326px, 40px);	
+																								background: url('/static/img/barra_vermelha.png') no-repeat;
+																								color: white;
+																								border: solid 1px #f5b633;
+																								text-transform: uppercase;
+																								text-align: center;
+																								line-height: 39px;
+																								font-size: 14pt; }
+																				.fields {	padding: 17px 10px 17px 10px;
+																									font-size: 13.5pt;
+																									border: solid 1px #d2ccaa;
+																									border-top: none;
+																									overflow: auto;
+																									.block {	.title {	color: #c43433;
+																																			text-transform: uppercase;	}
+																														.horizontal-separator {	.setSize(306px, 2px);
+																																										background: url('/static/img/pontilhado_horizontal.png') no-repeat;
+																																										clear: both;
+																																										.centralize;
+																																										margin-bottom: 10px;	}	
+																														.input {	label {	color: #727377;
+																																							font-size: 10.5pt;
+																																							display: block;	}
+																																			input[type="text"], input[type="password"] {	
+																																																									.setSize(142px, 18px);
+																																																									border: solid 1px #eff1f0;
+																																																									margin-top: 2px;
+																																																									margin-bottom: 8px;	}	
+																																			#observations {	.setSize(127px, 52px);
+																																											border: solid 1px #eff1f0;
+																																											margin-top: 2px;
+																																											margin-bottom: 11px;
+																																											resize:none	}
+																																	 }
+																														.input.left {	float: left;
+																																					margin-right: 14px;	}
+																														.input.right {	float: right;	}
+																														.input.small {	float: left;
+																																						input[type="text"]{	.setSize(60px, 18px); }
+																																						label[for="complement"] {	margin-left: 11px;	}
+																																				 }
+																														.separator {	float: left;
+																																					color: #727377;
+																																					padding: 0px 3px 0px 3px;
+																																					margin-top: 4px;	}
+																												 }		
+																									.btn-next-red {	.setSize(145px, 34px);
+																																	cursor: pointer;
+																																	background: url('/static/img/btn-next-red.png') no-repeat;
+																																	border: none;
+																																	float: right;
+																																	margin-top: 10px;
+																																	margin-bottom: -9px;	} 	
+																								}
+																		 }
+														.delivery-areas {	.setSize(325px, 50px);
+																							.setShadow(-2px 2px 35px -4px);
+																							background-color: #fffbd6;
+																							border: solid 1px #d2ccaa;
+																							float: left;
+																							margin-top: 44px;
+																							.areas-wrap {	.setSize(300px);
+																														.centralize;
+																														text-decoration: underline;
+																														color: red;
+																														.horizontal-separator {	.setSize(300px, 2px);
+																																										background: url('/static/img/pontilhado_horizontal.png') no-repeat;	}
+																																									}
+																														#area-link {	cursor: pointer;
+																																					text-transform: uppercase;
+																																					font-size: 10pt;
+																																					margin-top: 6px;
+																																					margin-bottom: 6px;	}
+																						}
+													}
+									}
+						.step-1 {	.setSize(100%, 500px);
+											background-color: white;
+											padding-top: 17px;
+											.top {	color: #c43232;
+															font-size: 12pt;
+															width: 930px;
+															.centralize;
+															.line-1, .line-2 {	float: left;	}
+															.line-2 {	margin-top: -7px;
+																				.delivery-time {	display: inline-block;
+																													font-size: 20pt;
+																													color: #f58634;
+																													font-weight: bold;	}
+																			}
+															.btn-acc {	.setSize(242px, 42px);
+																					background: url('/static/img/my_acc_btn.png') no-repeat;
+																					float: right;
+																					margin-top: -36px;
+																					color: white;
+																					.text {	padding-left: 70px;
+																									line-height: 42px;
+																									font-style:italic;
+																									text-decoration: underline;
+																									font-size: 10.5pt;	}	
+																				}	
+														}
+											.horizontal-separator {	.setSize(930px, 2px);
+																							.centralize;
+																							background: url('/static/img/pontilhado_horizontal.png') repeat-x;
+																							clear: both;
+																							margin-top: 31px;	}
+											.order-data {	color: #717276;
+																		.col1 {	float: left;
+																						.product-title {	float: left;
+																															padding-left: 62px;
+																															padding-right: 62px;
+																															padding-top: 10px;
+																															font-size: 38pt;
+																															text-transform: uppercase;
+																															font-weight: bold;
+																															letter-spacing: 1px;	}
+																						.vertical-separator {	.setSize(2px, 290px);
+																																	float: left;
+																																	background: url('/static/img/pontilhado_vertical.png') no-repeat;	}	
+																					}
+																		.col2 {	float: right;	
+
+																					}
+																	}
+										}
+						.password-reset {	padding: 17px 0px 17px 0px;
+															color: #737478;
+															.box-wrap {	.setSize(327px);
+																					.centralize;
+																					background-color: #F8FAF5;
+																					.top {	.setSize(325px, 39px);
+																									border: solid 1px #8cbc46;
+																									background: url('/static/img/barra_verde.png') repeat-y;
+																									background-position: -2px;
+																									color: white;
+																									text-transform: uppercase;
+																									text-align: center;
+																									line-height: 39px;
+																									font-size: 14pt;	}	
+																					.fields {	padding: 10px 15px 10px 15px;
+																										overflow: auto;
+																										.legend {	.line-1 {	font-size: 14pt;
+																																				padding-bottom: 10px;	}	
+																															.line-2 {	padding-bottom: 10px;
+																																				font-size: 11pt;
+																																				text-align: justify;	}	
+																														}	
+																										input[type="text"], input[type="password"] {	.setSize(293px, 25px);
+																																																	.setShadow(0px 10px 16px -5px, #ebf0ea);
+																																																	font-size: 10pt;
+																																																	border: solid 1px #eff1f0;
+																																																	margin-top: 2px;
+																																																	margin-bottom: 8px;	}
+																										.btn-next-green {	.setSize(145px, 36px);
+																																	cursor: pointer;
+																																	background: url('/static/img/btn-next-green.png') no-repeat;
+																																	border: none;
+																																	float: right;
+																																	margin-top: 10px;	}
+																									}
+																				}
+														}
+				 }
+
+.footer {	padding: 10px 0 20px 0px;
+					.copyright {	float: left;	}
+					.credits {	float: right;	}
+				}

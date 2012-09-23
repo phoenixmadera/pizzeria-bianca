@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<script type = "text/javascript" src = "{% static "js/step-one.js" %}"></script>
+<div class = "step-1">
+	<div class = "top">
+		<div class = "line-1">
+			Olá <b>{{ user.first_name }}</b>.
+		</div>
+		<div class = "clear"></div>
+		<div class = "line-2">
+			{% for time in delivery_time %}
+						Hoje o tempo aproximado para a entrega é de <p class = "delivery-time">{{ time }}</p> minutos. 
+						<b>O que você deseja?</b>
+			{% endfor %}
+		</div>
+		<div class = "btn-acc">
+			<div class = "text">
+				Acessar minha conta
+			</div>
+		</div>
+	</div>
+	<div class = "horizontal-separator"></div>
+	<div class = "order-data">
+		<div class = "col1">
+			{% for product in products %}
+					<div class = "product-title">
+						{{product.des}}
+					</div>
+						{% if forloop.counter == 1 %}
+							<div class = "vertical-separator"></div>
+						{% endif %}
+			{% endfor %}
+		</div>
+		<div class = "col2">
+
+		</div>	
+	</div>
+</div>
+<a href = "{% url delivery.views.logout_view %}">logout</a>
+{% endblock %}

@@ -1,0 +1,33 @@
+<div class = "modal">
+	<div class = "btn-close">
+		X
+	</div>
+	<div class = "title">
+		Confira abaixo as áreas e taxas de entrega da Bianca Pizzaria:
+	</div>
+	<div class = "horizontal-separator"></div>
+	<div class = "content">
+		{% for rate in rates %}
+				<div class = "areas-wrap">
+					<div class = "table-title">
+						Taxa de R$ {{ rate.val }}
+					</div>
+					<table class = "areas-list">
+					{% for neighborhood in neighborhoods %}
+							{% if forloop.first or not forloop.counter|divisibleby:"2" %}
+									{% ifequal rate.val neighborhood.delivery_rate.val %}<tr><td> {{ neighborhood.des }} </td>
+									{% endifequal %}
+							{% else %}
+										{% ifequal rate.val neighborhood.delivery_rate.val %}<td> {{ neighborhood.des }} </td></tr>{% endifequal %}
+							{% endif %}
+					{% endfor %}
+					</table>
+				</div>
+			{% endfor %}
+			<div class = "clear"></div>
+			<div class = "horizontal-separator bottom"></div>
+			<div class = "title-bottom">
+				Para outras áreas consulte pelo (51) 3328-5644
+			</div>
+		</div>
+	</div>
